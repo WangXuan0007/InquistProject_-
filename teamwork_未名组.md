@@ -4,4 +4,4 @@
 
 项目地址：https://github.com/WangXuan0007/InquistProject_-
 
-项目说明：英雄联盟！我们组想研究的课题是注意的执行功能及冲突解决。
+项目说明：我们组想研究的课题是评估注意网络的警觉、定向和执行控制功能，采用注意网络测验（Attention Network Test，ANT，2002）。
