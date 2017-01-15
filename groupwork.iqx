@@ -1,0 +1,106 @@
+﻿<picture instruction>
+     /items=("introduction.jpg")
+     /position = (15,15)
+     /valign = top
+     / halign = left
+     /size=(70%,70%)
+</picture>
+
+<picture cue1>
+	/items = ("center.jpg","none.jpg","double.jpg","up.jpg")
+	/size = (150,150)
+</picture>
+
+<picture cue2> 
+	/items = ("center.jpg","none.jpg","double.jpg","down.jpg")
+	/size = (150,150)
+</picture>
+
+<picture sti1>
+	/items = ("UL1.jpg","UL2.jpg","UL3.jpg")
+	/size = (150,150)
+</picture>
+
+<picture sti2>
+	/items = ("UR1.jpg","UR2.jpg","UR3.jpg")
+	/size = (150,150)
+</picture>
+
+<picture sti3>
+	/items = ("DL1.jpg","DL2.jpg","DL3.jpg")
+	/size = (150,150)
+</picture>
+
+<picture sti4>
+	/items = ("DR1.jpg","DR2.jpg","DR3.jpg")
+	/size = (150,150)
+</picture>
+
+<picture end>
+     /items=("ending.jpg")
+     /position = (15,15)
+     /valign = top
+     / halign = left
+     /size=(70%,70%)
+</picture>
+
+<trial ul>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("F")
+/ stimulustimes = [1=fixation;500=cue1;1000=sti1]
+</trial>
+
+<trial ur>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("J")
+/ stimulustimes = [1=fixation;500=cue2;1000=sti2]
+</trial>
+
+<trial dl>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("F")
+/ stimulustimes = [1=fixation;500=cue2;1000=sti3]
+</trial>
+
+<trial dr>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("J")
+/ stimulustimes = [1=fixation;500=cue2;1000=sti4]
+</trial>
+
+<trial instruction>
+ 	/validresponse = (anyresponse)
+ 	/stimulusframes = [1=instruction]
+ 	/recorddata = false
+</trial>
+ 
+<trial bye>
+ 	/validresponse = (anyresponse)
+ 	/stimulusframes = [1=end]
+ 	/recorddata = false
+</trial>
+ 
+<block instructionblk>
+ 	/screencolor = (0,0,0)
+ 	/trials = [1 = instruction]
+</block>
+ 
+<block byeblk>
+ 	/screencolor = (0,0,0)
+ 	/trials = [1 = bye]
+</block>
+
+<block all>
+/ screencolor = (0,0,0)
+/ blockfeedback = (meanlatency,correct)
+/ trials = [1-96 = noreplcerepeat(ul,ur,dl,dr)]
+</trial>
+
