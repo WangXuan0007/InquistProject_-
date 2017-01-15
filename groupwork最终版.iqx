@@ -1,0 +1,131 @@
+﻿<text correctmsg>
+     /items =("√")
+     /fontstyle =("Arial",5%)
+     /txbgcolor =(transparent)
+     /txcolor =(255,0,0)
+</text>
+
+<text errormsg>
+     /items =("×")
+     /fontstyle =("Arial",5%)
+     /txbgcolor =(transparent)
+     /txcolor =(255,0,0)
+</text>
+
+<text blank>
+     /items =("")
+     /txbgcolor =(0,0,0)
+     /size=(1500,1500)
+</text>
+
+<picture instruction>
+     /items=("introduction.jpg")
+     /position = (15,15)
+     /valign = top
+     / halign = left
+     /size=(70%,70%)
+</picture>
+
+<picture cue1>
+	/items = ("center.jpg","none.jpg","double.jpg","up.jpg")
+	/size = (1500,1500)
+</picture>
+
+<picture cue2> 
+	/items = ("center.jpg","none.jpg","double.jpg","down.jpg")
+	/size = (1500,1500)
+</picture>
+
+<picture sti1>
+	/items = ("UL1.jpg","UL2.jpg","UL3.jpg")
+	/size = (1500,1500)
+</picture>
+
+<picture sti2>
+	/items = ("UR1.jpg","UR2.jpg","UR3.jpg")
+	/size = (1500,1500)
+</picture>
+
+<picture sti3>
+	/items = ("DL1.jpg","DL2.jpg","DL3.jpg")
+	/size = (1500,1500)
+</picture>
+
+<picture sti4>
+	/items = ("DR1.jpg","DR2.jpg","DR3.jpg")
+	/size = (1500,1500)
+</picture>
+
+<picture end>
+     /items=("ending.jpg")
+     /position = (15,15)
+     /valign = top
+     / halign = left
+     /size=(70%,70%)
+</picture>
+
+<trial ul>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("F")
+/ stimulustimes = [1=cue1;500=sti1;1000=blank]
+</trial>
+
+<trial ur>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("J")
+/ stimulustimes = [1=cue2;500=sti2;1000=blank]
+</trial>
+
+<trial dl>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("F")
+/ stimulustimes = [1=cue2;500=sti3;1000=blank]
+</trial>
+
+<trial dr>
+/ correctmessage = (correctmsg,500)
+/ errormessage = (errormsg,500)
+/ validresponse = ("F","J")
+/ correctresponse = ("J")
+/ stimulustimes = [1=cue2;500=sti4;1000=blank]
+</trial>
+
+<trial instruction>
+ 	/validresponse = (anyresponse)
+ 	/stimulusframes = [1=instruction]
+ 	/recorddata = false
+</trial>
+ 
+<trial bye>
+ 	/validresponse = (anyresponse)
+ 	/stimulusframes = [1=end]
+ 	/recorddata = false
+</trial>
+ 
+<block instructionblk>
+ 	/screencolor = (0,0,0)
+ 	/trials = [1 = instruction]
+</block>
+ 
+<block byeblk>
+ 	/screencolor = (0,0,0)
+ 	/trials = [1 = bye]
+</block>
+
+<block all>
+    /screencolor = (0,0,0)
+    /blockfeedback = (meanlatency,correct)
+    /trials = [1-96 = noreplace(ul,ur,dl,dr)]
+</block>
+
+<expt>
+   /blocks =[1=instructionblk;2=all;3=byeblk]
+
+</expt>
+
